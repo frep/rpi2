@@ -78,6 +78,18 @@ function installGrovePi {
 	sudo ./install.sh
 }
 
+function installVncServer {
+	sudo apt-get install x11vnc -y
+	x11vnc -storepasswd
+	assertLaunchStartxScriptExists
+        cp -f ${setupdir}/vnc/x11vnc.desktop ~/.config/autostart/
+}
+
+function finderScreenSharing {
+	sudo apt-get install netatalk -y
+	sudo cp -f ${setupdir}/vnc/rfb.service /etc/avahi/services/
+}
+
 
 ###################################################################################
 # program
@@ -91,5 +103,7 @@ function installGrovePi {
 #installConky
 #startConkyAtStartx
 #installGrovePi
-
-
+#installVncServer
+#finderScreenSharing
+sudo apt-get autoremove -y
+#sudo reboot
