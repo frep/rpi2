@@ -90,6 +90,9 @@ function finderScreenSharing {
 	sudo cp -f ${setupdir}/vnc/rfb.service /etc/avahi/services/
 }
 
+function installChromium {
+	sudo apt-get install chromium-browser chromium-l10n -y
+}
 
 ###################################################################################
 # program
@@ -105,5 +108,6 @@ function finderScreenSharing {
 #installGrovePi
 #installVncServer
 #finderScreenSharing
-sudo apt-get autoremove -y
+installChromium
+#sudo apt-get autoremove -y
 #sudo reboot
